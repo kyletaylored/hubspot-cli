@@ -15,17 +15,17 @@ use SevenShores\Hubspot\Factory as HubspotFactory;
  */
 class HubSpot {
 
-  protected $hubspot;
+  public $hubspot;
 
   /**
    * HubSpot constructor.
    */
   public function __construct() {
     {
-      $key = config('hubspot.key');
-      $oauth = ($o = config('hubspot.oauth')) ? $o : false;
-      $base_url = ($b = config('hubspot.base_url')) ? $b : 'https://api.hubapi.com';
-      $http_errors = ($h = config('hubspot.http_errors')) ? $h : false;
+      $key = env('HUBSPOT_API_KEY');
+      $oauth = ($o = env('HUBSPOT_OAUTH')) ? $o : false;
+      $base_url = ($b = env('HUBSPOT_BASE_URL')) ? $b : 'https://api.hubapi.com';
+      $http_errors = ($h = env('HUBSPOT_HTTP_ERRORS')) ? $h : false;
 
       // Kill if no API key.
       if (empty($key)) {

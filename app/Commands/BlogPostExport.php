@@ -42,7 +42,9 @@ class BlogPostExport extends Command
      */
     public function handle()
     {
-      return $this->hubspot->blogPosts()->all();
+      $posts = $this->hubspot->blogPosts();
+      return 0;
+
     }
 
     /**
